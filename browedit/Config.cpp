@@ -130,7 +130,6 @@ bool Config::showWindow(BrowEdit* browEdit)
 		ImGui::ColorEdit3("Background Color", glm::value_ptr(backgroundColor));
 		ImGui::ColorEdit3("Wall Edit Selection Color", glm::value_ptr(wallEditSelectionColor));
 		ImGui::ColorEdit3("Wall Edit Highlight Color", glm::value_ptr(wallEditHighlightColor));
-		ImGui::ColorEdit3("Background Color", glm::value_ptr(backgroundColor));
 		ImGui::DragFloat2 ("Object Window thumbnail size", &thumbnailSize.x, 1, 32, 512);
 		ImGui::Checkbox("Close object window when adding a model", &closeObjectWindowOnAdd);
 		ImGui::DragFloat("Toolbar Button Size", &toolbarButtonSize, 1, 1, 100);
