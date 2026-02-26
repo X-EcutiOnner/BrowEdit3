@@ -177,9 +177,8 @@ namespace gl
 		glBindFramebuffer(GL_FRAMEBUFFER, fboId);
 		if (depthBuffer > 0)
 			glBindRenderbuffer(GL_RENDERBUFFER, depthBuffer);
-		static GLenum buffers[] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2, GL_COLOR_ATTACHMENT3 };
 		if (textureCount > 0)
-			glDrawBuffers(textureCount, buffers);
+			glDrawBuffer(GL_COLOR_ATTACHMENT0);
 	}
 
 	void FBO::bind(int index)
@@ -201,13 +200,11 @@ namespace gl
 			glBindRenderbuffer(GL_RENDERBUFFER, 0);
 		if (oldFBO == 0)
 		{
-			static GLenum buffers[] = { GL_BACK };
-			glDrawBuffers(1, buffers);
+			glDrawBuffer(GL_BACK);
 		}
 		else if (oldFBO != -1)
 		{
-			static GLenum buffers[] = { GL_COLOR_ATTACHMENT0 };
-			glDrawBuffers(1, buffers);
+			glDrawBuffer(GL_COLOR_ATTACHMENT0);
 		}
 		oldFBO = -1;
 	}
