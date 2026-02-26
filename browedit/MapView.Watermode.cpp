@@ -326,11 +326,12 @@ void MapView::postRenderWaterMode(BrowEdit* browEdit)
 					glLineWidth(2);
 					gridVbo->bind();
 					glEnableVertexAttribArray(0);
-					glDisableVertexAttribArray(1);
+					glEnableVertexAttribArray(1);
 					glDisableVertexAttribArray(2);
 					glDisableVertexAttribArray(3);
-					glDisableVertexAttribArray(4);
-					glVertexAttribPointer(0, 3, GL_FLOAT, false, sizeof(VertexP3), (void*)(0 * sizeof(float)));
+					glDisableVertexAttribArray(4); //TODO: vao
+					glVertexAttribPointer(0, 3, GL_FLOAT, false, sizeof(VertexP3T2), (void*)(0 * sizeof(float)));
+					glVertexAttribPointer(1, 2, GL_FLOAT, false, sizeof(VertexP3T2), (void*)(3 * sizeof(float)));
 					glDrawArrays(GL_LINES, 0, (int)gridVbo->size());
 					gridVbo->unBind();
 				}
